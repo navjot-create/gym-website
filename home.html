@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Website</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #86f5ff, #4104fb);
+            color: #333;
+        }
+
+        nav {
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            border-radius: 5px;
+            color: black;
+        }
+
+        .title {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .section {
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .section:hover {
+            transform: scale(1.05);
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+        }
+
+        .section-title {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .close {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            background-color: darkred;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #5104f7;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="blogs.html">Blogs</a>
+        <a href="about_us.html">About Us</a>
+        <a href="newsletter.html">Newsletter</a>
+    </nav>
+
+    <div class="title">
+        <h2>Check out our Gym services below</h2>
+    </div>
+
+    <div class="container">
+        <div class="section" onclick="showModal('Pilates', 'Pilates promotes mobility and strength of all the major muscle groups in the body in a balanced fashion, whilst also having a key focus on the deep core muscles. It improves posture, flexibility, strength, balance and body awareness. Price: $30 per session.')">
+            <div class="section-title">Pilates</div>
+            <img src="Pilates.png" alt="Pilates">
+        </div>
+        <div class="section" onclick="showModal('Weightlifting', 'Weightlifting events are key elements of strength athletics. Weight training is weightlifting to develop physical strength and/or a muscular physique. It is a common part of strength conditioning for athletes in many sports. When the primary goal is to develop an all-round muscular physique, this is bodybuilding.. Price: $40 per session.')">
+            <div class="section-title">Weightlifting</div>
+            <img src="weightlifting.png" alt="Weightlifting">
+        </div>
+        <div class="section" onclick="showModal('Cardio', 'Cardio, or aerobic exercise, is a type of physical activity that increases your heart rate and makes you breathe harder. Cardio can reduce your risk of heart disease, stroke, diabetes, and some types of cancer. Price: $25 per session.')">
+            <div class="section-title">Cardio</div>
+            <img src="cardio.png" alt="Cardio">
+        </div>
+        <div class="section" onclick="showModal('Aerobics', 'Aerobic exercise is a physical activity that uses large muscle groups in your body. This type of exercise is usually rhythmic and repetitive. You can adjust the intensity of your workout, which is how hard your body works during this type of exercise. Price: $30 per session.')">
+            <div class="section-title">Aerobics</div>
+            <img src="aerobics.png" alt="Aerobics">
+        </div>
+        <div class="section" onclick="showModal('Agility Training', 'Agility training is a series of exercises that improve coordination, speed, and reaction time. An effective agility training program should include a variety of exercises that are tailored to the specific demands of the athlete\'s sport. Price: $45 per session.')">
+            <div class="section-title">Agility Training</div>
+            <img src="Agility Training.png" alt="Agility Training">
+        </div>
+    
+        <div class="section" onclick="showModal('Calisthenics', 'Calisthenics is a form of exercise that uses a person\'s body weight and requires little to no equipment. Examples of calisthenic exercises include pushups, crunches, and burpees. There are many health benefits to calisthenics, and most people can start exercising right away. Price: $50 per session.')">
+            <div class="section-title">Calisthenics</div>
+            <img src="calisthenics.png" alt="Calisthenics">
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <button class="close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Gym Website. All Rights Reserved.</p>
+        <a href="privacy_policy.html">Privacy Policy</a> | 
+        <a href="terms_conditions.html">Terms & Conditions</a>
+    </footer>
+
+    <script>
+        function showModal(title, description) {
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDescription").innerText = description;
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
