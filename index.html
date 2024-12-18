@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #91e0f8, #035cf5);
+            color: #fff;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .header, .footer {
+            text-align: center;
+            padding: 20px;
+        }
+        .form-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff7e5f;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #feb47b;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+        .navigation a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .section {
+            text-align: center;
+            padding: 40px;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .blog, .about {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Landing Page -->
+    <div class="form-section" id="landing">
+        <h1>Welcome to Our Gym</h1>
+        <p>Register Below:</p>
+        <form action="home.html" method="GET">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="tel" name="contact" placeholder="Enter your contact number" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
