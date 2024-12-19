@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Website</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RS55S8J3Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RS55S8J3Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-0RS55S8J3Y');
-</script>
+      gtag('config', 'G-0RS55S8J3Y');
+    </script>
     <style>
         body {
             margin: 0;
@@ -74,16 +74,66 @@
     </style>
 </head>
 <body>
-
     <!-- Landing Page -->
     <div class="form-section" id="landing">
         <h1>Welcome to Our Gym</h1>
         <p>Register Below:</p>
-        <form action="home.html" method="GET">
+        <form action="home.html" method="GET" 
+              onsubmit="gtag('event', 'form_submit', { 
+                        'event_category': 'User Input', 
+                        'event_label': 'Webpage 1 Registration', 
+                        'value': 1 });">
             <input type="text" name="name" placeholder="Enter your name" required>
             <input type="email" name="email" placeholder="Enter your email" required>
             <input type="tel" name="contact" placeholder="Enter your contact number" required>
             <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Webpage 2: Navigation Events -->
+    <div class="navigation">
+        <a href="blogs.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Blogs' });">Blogs</a>
+        <a href="about-us.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'About Us' });">About Us</a>
+        <a href="newsletter.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Newsletter' });">Newsletter</a>
+        <a href="pilates.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Pilates' });">Pilates</a>
+        <a href="weightlifting.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Weightlifting' });">Weightlifting</a>
+        <a href="cardio.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Cardio' });">Cardio</a>
+        <a href="aerobics.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Aerobics' });">Aerobics</a>
+        <a href="agility-training.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Agility Training' });">Agility Training</a>
+        <a href="calisthenics.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Calisthenics' });">Calisthenics</a>
+        <a href="#" 
+           onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Close' });">Close</a>
+    </div>
+
+    <!-- Webpage 3: Read More -->
+    <div class="section">
+        <h2>Explore More About Our Gym</h2>
+        <a href="read-more.html" 
+           onclick="gtag('event', 'click', { 'event_category': 'Content Interaction', 'event_label': 'Read More' });">Read More</a>
+    </div>
+
+    <!-- Webpage 5: Subscription Form -->
+    <div class="form-section">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form action="subscribe.html" method="POST" 
+              onsubmit="gtag('event', 'subscribe', { 
+                        'event_category': 'User Input', 
+                        'event_label': 'Webpage 5 Subscription', 
+                        'value': 1 });">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="location" placeholder="Location" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <button type="submit">Subscribe</button>
         </form>
     </div>
 </body>
